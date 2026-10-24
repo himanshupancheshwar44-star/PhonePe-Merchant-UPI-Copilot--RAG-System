@@ -1,0 +1,235 @@
+UPI Payment Problems Faced by Small Merchants in India
+
+Research brief and starter knowledge base for a Retrieval-Augmented Generation (RAG) application
+
+1. Project opportunity
+
+Build a “Merchant UPI Helpdesk” that helps hotel/restaurant operators, shopkeepers, and small vendors understand what to do when a UPI payment is pending, a customer shows a success screen but the merchant has not received the money, a refund is delayed, or a suspicious payment claim appears. The system should retrieve trusted guidance and explain next steps with source citations—not guess whether a particular payment succeeded.
+
+2. Real issues documented in public sources
+
+Payment failure or service outage
+
+UPI or a payment app may be temporarily unavailable, leaving customers unable to pay and merchants unable to complete sales. A news report about the April 2025 outage described disruption to retail and wholesale markets in Uttar Pradesh.
+
+Possible merchant impact: queues, interrupted service, lost or postponed sales.
+
+RAG question: “UPI is not working at my shop right now. What should I tell customers and what should I check?”
+
+Source: Times of India, 12–13 Apr 2025
+
+Payment shows pending / confirmation is delayed
+
+NPCI’s UPI FAQ explains that a transaction can show pending when the payer is debited but confirmation/credit at the beneficiary bank is delayed.
+
+Possible merchant impact: uncertainty about whether to hand over goods, repeat-payment confusion, and time spent checking status.
+
+RAG question: “Customer says money was deducted, but my account has not received it. What is the safe next step?”
+
+Source: NPCI UPI FAQ
+
+Payer debited, merchant not credited; reversal or refund delay
+
+NPCI says failed transactions where the payer was debited are expected to be refunded, but sometimes the refund takes longer; its FAQ advises contacting the bank if the refund has not arrived within the stated timeframe.
+
+Possible merchant impact: disputes at the counter and repeated customer follow-ups.
+
+RAG question: “The customer was debited and the transaction failed. Who should raise a complaint, and where?”
+
+Source: NPCI UPI FAQ
+
+Merchant cannot reconcile payments quickly
+
+NPCI says merchants can raise grievances or check transaction status through their acquiring bank. This indicates that merchant-side status checking and escalation are important workflows.
+
+Possible merchant impact: manual checking of bank/app records and difficulty closing daily accounts.
+
+RAG question: “How can a merchant check a disputed transaction and escalate it?”
+
+Source: NPCI UPI FAQ
+
+Fraud and misleading payment claims
+
+A 2025 merchant report identifies scam protection and low awareness of redress processes as concerns for some merchants. A customer showing a screenshot or notification is not the same as the merchant independently confirming credit.
+
+Possible merchant impact: goods handed over before funds are confirmed, loss, or uncertainty about reporting a suspicious incident.
+
+RAG question: “A customer shows a payment screenshot, but I cannot see the credit. What should I verify?”
+
+Source: Understanding UPI Report, 2025
+
+Poor connectivity and inconsistent notifications
+
+The 2025 merchant report and news coverage describe connectivity problems, downtime, and delayed notifications as pain points affecting merchants.
+
+Possible merchant impact: longer queues, repeated payment attempts, and customer frustration.
+
+RAG question: “My internet is weak and payment confirmation is delayed. What should I do without charging the customer twice?”
+
+Source: Understanding UPI Report, 2025; Times of India, Apr 2025
+
+Operational disruption in hotels and restaurants
+
+A report on the April 2025 disruption quoted a restaurant operator describing customers unable to pay during the outage and staff noting contact details for later payment.
+
+Possible merchant impact: table turnover slows, bills remain unsettled, and staff must track later payments.
+
+RAG question: “During a UPI outage, how can a restaurant record unpaid bills safely and follow up?”
+
+Source: Times of India, 12 Apr 2025
+
+Disputes and chargeback handling are complicated
+
+An NPCI circular from February 2025 discusses chargeback handling and coordination between remitting and beneficiary banks for certain transaction cases.
+
+Possible merchant impact: confusing escalation steps and uncertainty about who must act.
+
+RAG question: “A UPI transaction is disputed. What evidence should I keep and which bank channel should I contact?”
+
+Source: NPCI circular, 10 Feb 2025
+
+3. Evidence quality: what is known vs. what to validate
+
+The issues above are grounded in public NPCI guidance, an NPCI circular, and published reporting. They establish that these problems occur, but they do not establish how often each issue affects every hotel or shopkeeper. Treat merchant impact statements as plausible consequences unless the cited source directly reports them. Before building a commercial product, interview local merchants and record their own experiences—with consent—rather than presenting invented stories or synthetic examples as real testimony.
+
+4. Recommended RAG use case
+
+Product name (working): Merchant UPI Helpdesk
+
+Input: merchant describes the issue, approximate time, amount range, app/bank involved if they choose to share it, and the visible transaction status.
+
+Retrieve: official NPCI FAQs, the merchant’s acquiring bank help pages, relevant RBI directions, and carefully selected incident reports.
+
+Answer: give a short checklist, say what is known and unknown, and cite the exact source and section.
+
+Escalate: route unresolved cases to the merchant’s acquiring bank/payment provider. Do not claim to check live payment status unless an authorized payment-system integration actually exists.
+
+Safety: never ask users to share UPI PINs, OTPs, full account numbers, or other secrets. Do not advise handing over goods based only on a screenshot; advise checking the merchant’s own bank/app record.
+
+Evaluation: test whether the answer cites the right policy, avoids inventing refund times, distinguishes payer and merchant roles, and knows when to say “contact your bank”.
+
+5. Starter knowledge-base data schema
+
+Field
+
+Example
+
+Purpose
+
+Notes
+
+doc_id
+
+NPCI_FAQ_001
+
+Stable source identifier
+
+Use unique IDs.
+
+title
+
+UPI FAQ: failed transaction
+
+Retrieval and display
+
+Keep original document title.
+
+source_url
+
+https://www.npci.org.in/what-we-do/upi/faqs
+
+Traceability
+
+Store the canonical URL.
+
+publisher
+
+NPCI
+
+Trust/ranking
+
+Prefer official sources for instructions.
+
+published_or_updated
+
+Unknown unless stated
+
+Freshness filtering
+
+Do not invent dates.
+
+issue_category
+
+pending / failure / refund / fraud
+
+Metadata filtering
+
+Use a controlled taxonomy.
+
+merchant_type
+
+restaurant / retail / all
+
+Contextual retrieval
+
+Only label if supported.
+
+chunk_text
+
+Exact relevant paragraph...
+
+Embedding and retrieval
+
+Preserve surrounding caveats.
+
+action_steps
+
+Check transaction status; contact acquiring bank...
+
+Structured response
+
+Only steps supported by source.
+
+confidence_scope
+
+Official general guidance
+
+Avoid overclaiming
+
+Not a live transaction result.
+
+6. Questions to ask shopkeepers and hotel operators
+
+What is the most common UPI issue you face during a normal week?
+
+What do you do when the customer says “payment successful” but you do not see the credit?
+
+How do you check a payment later, and how long does that usually take in your experience?
+
+Have failed or delayed payments ever interrupted a busy period? What happened?
+
+Which apps, bank accounts, QR devices, or soundboxes do you use?
+
+How do you record a bill when payment is pending?
+
+Have you encountered fake screenshots, misleading notifications, or suspicious requests? What support did you receive?
+
+What would you want an AI assistant to answer, and what would you never trust it to decide?
+
+7. Sources
+
+NPCI, UPI FAQs (merchant grievance, pending transactions, failed payments and refunds)https://www.npci.org.in/what-we-do/upi/faqs
+
+NPCI, UPI ecosystem statistics (definitions of business declines, technical declines, and debit reversals)https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics
+
+NPCI circular, UPI-OC No. 213/2024–25, 10 Feb 2025 (chargeback process)https://www.npci.org.in/PDF/npci/upi/circular/2025/UPI-OC-No-213-FY-2024-25-Auto-Acceptance-Rejection-of-Chargeback.pdf
+
+Times of India, UPI outage disrupts businesses in Uttar Pradesh, 12 Apr 2025https://timesofindia.indiatimes.com/business/india-business/upi-outage-in-cripples-transactions-in-up-businesses-reel-under-disruption/articleshow/120238843.cms
+
+Times of India, UPI glitch hits transactions in markets, 13 Apr 2025https://timesofindia.indiatimes.com/city/lucknow/upi-glitch-hits-transactions-worth-over-25cr-in-markets/articleshow/120241200.cms
+
+Artha Global, Understanding UPI Report (2025), merchant pain points including downtime, connectivity and scam protectionhttps://artha.global/wp-content/uploads/2025/09/Understanding-UPI-Report_FINAL.pdf
+
+BCG, UPI – The Global Benchmark for Digital Payments (2025), merchant survey and use caseshttps://web-assets.bcg.com/73/e5/e11f0db54da18a31a7cb55c1bef2/upi-the-global-benchmark-for-digital-payments.pdf
+
+Important: This is a research starter, not legal or banking advice. Payment outcomes and grievance timelines depend on the transaction type, bank, payment app, and current rules. Verify current official guidance before presenting a specific deadline to users.

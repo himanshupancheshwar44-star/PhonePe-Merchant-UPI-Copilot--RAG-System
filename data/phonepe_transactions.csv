@@ -1,0 +1,13 @@
+transaction_id,utr_number,timestamp,customer_name_or_vpa,amount,status,soundbox_announced,payment_mode,counter_terminal,failure_reason
+TXN_PP_1001,429188231001,2026-10-17 08:15:22,rahul.sharma@okaxis,150.00,SUCCESS,YES,PhonePe QR,Counter 1,None
+TXN_PP_1002,429188231002,2026-10-17 08:32:10,priya.patel@okhdfcbank,450.00,SUCCESS,YES,PhonePe QR,Counter 1,None
+TXN_PP_1003,429188231003,2026-10-17 08:45:00,amit.kumar@ibl,1200.00,PENDING,NO,PhonePe QR,Counter 2,Beneficiary bank timeout - CBS latency
+TXN_PP_1004,429188231004,2026-10-17 09:10:14,sunita.verma@paytm,35.00,SUCCESS,YES,PhonePe QR,Counter 1,None
+TXN_PP_1005,429188231005,2026-10-17 09:22:31,deepak.gupta@ybl,850.00,FAILED,NO,PhonePe QR,Counter 1,Customer bank technical decline (TD)
+TXN_PP_1006,429188231006,2026-10-17 09:40:19,vikram.singh@sbi,2500.00,PENDING,NO,PhonePe QR,Counter 2,Remitter debited, awaiting merchant credit confirmation
+TXN_PP_1007,429188231007,2026-10-17 09:55:45,neha.jain@icici,180.00,SUCCESS,YES,PhonePe QR,Counter 1,None
+TXN_PP_1008,429188231008,2026-10-17 10:02:11,anand.m@okaxis,600.00,REVERSED,NO,PhonePe QR,Counter 1,Auto-reversed to customer under T+1 TAT
+TXN_PP_1009,429188231009,2026-10-17 10:14:50,unknown.spoof@fake,950.00,NOT_FOUND_IN_SYSTEM,NO,Suspicious Screenshot,Counter 1,No transaction record matching UTR on NPCI switch
+TXN_PP_1010,429188231010,2026-10-17 10:25:05,rajesh.tiwari@barodampay,75.00,SUCCESS,YES,PhonePe QR,Counter 1,None
+TXN_PP_1011,429188231011,2026-10-16 19:30:12,suresh.raina@okicici,3200.00,DISPUTED,YES,PhonePe QR,Counter 2,Customer raised chargeback claiming non-delivery
+TXN_PP_1012,429188231012,2026-10-16 20:15:40,manish.k@ybl,420.00,SUCCESS,NO,PhonePe QR,Counter 1,Soundbox delayed due to 4G connectivity lag; app credited

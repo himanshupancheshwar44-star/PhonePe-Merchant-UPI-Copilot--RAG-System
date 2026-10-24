@@ -1,0 +1,169 @@
+[
+  {
+    "doc_id": "NPCI_FAQ_001",
+    "title": "UPI FAQ: Pending Transaction & Beneficiary Confirmation Delay",
+    "source_url": "https://www.npci.org.in/what-we-do/upi/faqs",
+    "publisher": "NPCI",
+    "published_or_updated": "2025-01-15",
+    "issue_category": "pending",
+    "merchant_type": "all",
+    "chunk_text": "NPCI UPI FAQ states: A transaction can show 'Pending' when the remitter (payer) account is debited, but confirmation or credit at the beneficiary bank is delayed due to network or core banking server latency. The transaction is in an intermediate state. Until the beneficiary bank receives and confirms the credit, the merchant has not received the funds.",
+    "action_steps": [
+      "Check merchant app/soundbox directly; do not rely on customer screen.",
+      "Advise the customer that the payment is in pending state.",
+      "Do not release high-value goods until the transaction shows 'Success' in the merchant app.",
+      "If the customer cannot wait, take customer contact details or request an alternative cash/card payment with an assurance that pending funds auto-reverse if failed."
+    ],
+    "confidence_scope": "Official NPCI Guidance"
+  },
+  {
+    "doc_id": "NPCI_FAQ_002",
+    "title": "Payer Debited, Merchant Not Credited: Auto-Reversal & Refund Timelines",
+    "source_url": "https://www.npci.org.in/what-we-do/upi/faqs",
+    "publisher": "NPCI",
+    "published_or_updated": "2025-02-01",
+    "issue_category": "refund",
+    "merchant_type": "all",
+    "chunk_text": "According to NPCI and RBI Harmonisation of Turn Around Time (TAT), when a customer's account is debited but the merchant is not credited (failed or timed-out transaction), the amount must be auto-reversed to the customer's account. The standard timeline for UPI auto-reversal is T+1 business day. If not reversed within T+5 days, the customer's bank is liable to pay compensation of ₹100 per day of delay beyond T+1.",
+    "action_steps": [
+      "Inform customer that deducted money is held with their remitting bank, not the merchant.",
+      "Explain the standard T+1 banking refund window.",
+      "Advise the customer to check their bank mini-statement after 24 hours.",
+      "If money is not credited back within 48 hours, customer should raise a dispute in their UPI app using the 12-digit UTR."
+    ],
+    "confidence_scope": "RBI / NPCI Mandated TAT"
+  },
+  {
+    "doc_id": "NPCI_CIRC_2025_213",
+    "title": "NPCI Circular: Auto-Acceptance & Rejection of Chargebacks",
+    "source_url": "https://www.npci.org.in/PDF/npci/upi/circular/2025/UPI-OC-No-213-FY-2024-25-Auto-Acceptance-Rejection-of-Chargeback.pdf",
+    "publisher": "NPCI",
+    "published_or_updated": "2025-02-10",
+    "issue_category": "chargeback",
+    "merchant_type": "retail",
+    "chunk_text": "NPCI circular UPI-OC No. 213/2024-25 regulates the chargeback and dispute escalation between remitting and acquiring banks. For disputed merchant transactions where a customer claims non-delivery of service or goods, the merchant's acquiring bank must produce proof of delivery or invoice within prescribed turnaround windows. Failure to provide transaction logs leads to auto-acceptance of customer chargeback.",
+    "action_steps": [
+      "Maintain a daily ledger of billed amounts matching 12-digit UTRs.",
+      "Keep physical/digital copies of counter receipts for disputed transactions.",
+      "Respond to acquiring bank dispute emails or app notifications within 48 hours with order slips."
+    ],
+    "confidence_scope": "Official NPCI Circular"
+  },
+  {
+    "doc_id": "PHONEPE_MERCHANT_001",
+    "title": "PhonePe Merchant Soundbox & QR Credit Verification Guidelines",
+    "source_url": "https://www.phonepe.com/merchant/smart-speaker/",
+    "publisher": "PhonePe Merchant Support",
+    "published_or_updated": "2025-03-01",
+    "issue_category": "verification",
+    "merchant_type": "retail / restaurant",
+    "chunk_text": "PhonePe Merchant Policy: A customer showing a 'Payment Successful' screen on their smartphone is NOT proof of payment. Counterfeit screenshot generator apps simulate PhonePe, Google Pay, and Paytm screens. Merchants must only verify transactions through three authentic channels: (1) PhonePe SmartSpeaker voice announcement, (2) Notification / Transaction History inside the PhonePe for Business app, or (3) Bank SMS alert.",
+    "action_steps": [
+      "Never hand over items or let customers leave based purely on customer phone screens.",
+      "Wait for the SmartSpeaker voice confirmation (e.g., 'PhonePe par ₹... prapt hue').",
+      "If SmartSpeaker is silent due to 4G sim connectivity, immediately pull-to-refresh the PhonePe for Business app transactions list.",
+      "Verify the 12-digit UTR number in your PhonePe for Business ledger."
+    ],
+    "confidence_scope": "PhonePe Merchant Guidelines"
+  },
+  {
+    "doc_id": "PHONEPE_MERCHANT_002",
+    "title": "PhonePe SmartSpeaker Lag & Network Connectivity Troubleshooting",
+    "source_url": "https://www.phonepe.com/merchant/support/",
+    "publisher": "PhonePe Merchant Support",
+    "published_or_updated": "2025-03-10",
+    "issue_category": "hardware / network",
+    "merchant_type": "all",
+    "chunk_text": "When PhonePe SmartSpeaker voice alert is delayed or silent: (1) Check LED indicator. Green indicates connected, Blinking Blue indicates searching network, Red indicates network failure or low battery. (2) Weak cellular signal can delay voice prompts by 30-90 seconds even though payment succeeded. (3) Merchant app remains the primary real-time source of truth over audio cues.",
+    "action_steps": [
+      "Press the volume '+' and '-' buttons together to test battery and network signal.",
+      "Check if PhonePe for Business app received the payment notification.",
+      "Restart the SmartSpeaker by long-pressing the power button for 5 seconds if blinking Red.",
+      "If app shows success, release goods safely even if speaker lagged."
+    ],
+    "confidence_scope": "Merchant Hardware Advisory"
+  },
+  {
+    "doc_id": "ARTHA_BCG_FRAUD_001",
+    "title": "Preventing Fake UPI Screenshots & Spoof Payment Scam Detection",
+    "source_url": "https://artha.global/wp-content/uploads/2025/09/Understanding-UPI-Report_FINAL.pdf",
+    "publisher": "Artha Global / BCG Payment Study",
+    "published_or_updated": "2025-04-01",
+    "issue_category": "fraud",
+    "merchant_type": "all",
+    "chunk_text": "Reports from Artha Global and merchant surveys highlight the rampant use of 'spoof' apps (FakePay, Prank Payment generators) where scammers type merchant name and amount to generate a pixel-perfect imitation of PhonePe/Paytm green success screens with simulated chime sounds. Key telltales: missing real 12-digit UTR on NPCI switch, lack of merchant-side SMS/Soundbox trigger, and rushed customer behavior.",
+    "action_steps": [
+      "Match the 12-digit UTR from customer screen into your merchant app search bar.",
+      "Ask customer to wait 60 seconds if payment notification is delayed.",
+      "Never accept requests where customer says 'I sent ₹500 extra by mistake, give me ₹200 cash back' without seeing credited balance in your bank account.",
+      "Report persistent fake screenshot attempts to Cyber Crime cell (cybercrime.gov.in or 1930) and acquiring partner."
+    ],
+    "confidence_scope": "Industry Security Report"
+  },
+  {
+    "doc_id": "NPCI_ECO_001",
+    "title": "Technical Decline (TD) vs Business Decline (BD) in UPI Payments",
+    "source_url": "https://www.npci.org.in/what-we-do/upi/upi-ecosystem-statistics",
+    "publisher": "NPCI",
+    "published_or_updated": "2025-01-20",
+    "issue_category": "failure",
+    "merchant_type": "all",
+    "chunk_text": "NPCI classifies UPI declines into Technical Declines (TD) and Business Declines (BD). Technical Declines happen due to host bank unavailability, network timeout, or CBS downtime; in TD cases, money is rarely deducted, or immediately reversed. Business Declines occur due to customer PIN errors, insufficient balance, or daily UPI limit exceeded (e.g., ₹1 Lakh daily cap or merchant category limit).",
+    "action_steps": [
+      "If customer app shows 'Technical Error' or 'Bank Server Down', no deduction occurred.",
+      "Request customer to retry using an alternate bank account linked in UPI or use card/cash.",
+      "If bank server is experiencing widespread outage, avoid repeated retries within 5 minutes to prevent multiple debits."
+    ],
+    "confidence_scope": "NPCI Technical Specifications"
+  },
+  {
+    "doc_id": "TOI_INCIDENT_001",
+    "title": "Handling Retail Outages & Managing Busy Counters During Server Glitches",
+    "source_url": "https://timesofindia.indiatimes.com/business/india-business/upi-outage-in-cripples-transactions-in-up-businesses-reel-under-disruption/articleshow/120238843.cms",
+    "publisher": "Times of India / NPCI Incident Report",
+    "published_or_updated": "2025-04-13",
+    "issue_category": "outage",
+    "merchant_type": "restaurant / retail",
+    "chunk_text": "During major UPI network glitches affecting major banks (e.g., HDFC, SBI, ICICI core banking downtimes), queues surge and customers experience payment freezing. Recommended merchant protocol: (1) Maintain an offline transaction register recording customer name, phone number, amount, and order ID for regular patrons. (2) Keep backup POS card machines or cash change ready. (3) Do not get into arguments at the counter; show official downtime notification.",
+    "action_steps": [
+      "Keep alternate payment modes (Card POS, Cash, secondary QR linked to a different bank).",
+      "For dine-in restaurants with pending bills during outages, note down verified phone number and send payment link via SMS/WhatsApp once servers stabilize.",
+      "Check official bank UPI status page or Twitter/X handle of NPCI for estimated recovery time."
+    ],
+    "confidence_scope": "Merchant Incident Protocol"
+  },
+  {
+    "doc_id": "PHONEPE_SETTLE_001",
+    "title": "PhonePe Merchant Daily Settlement & Bank Reconciliation Workflow",
+    "source_url": "https://www.phonepe.com/merchant/settlement-faq/",
+    "publisher": "PhonePe Merchant Support",
+    "published_or_updated": "2025-02-15",
+    "issue_category": "settlement",
+    "merchant_type": "all",
+    "chunk_text": "PhonePe Merchant Settlements: All payments accepted on QR / SmartSpeaker between 00:00:00 and 23:59:59 are settled into the merchant's registered bank account by next morning (T+1) before 08:00 AM. Merchants can also trigger 'Settle Now' (instant on-demand settlement) up to 5 times daily. If settlement fails, it is usually due to bank server downtime or account freeze at the merchant's bank.",
+    "action_steps": [
+      "Open PhonePe for Business app -> Settlements tab to check payout status.",
+      "Compare the settlement amount with daily total collections; verify any deducted MDR or refunds.",
+      "If settlement status shows 'Processing' past 10:00 AM, tap 'Need Help' on the settlement entry to raise an instant ticket.",
+      "Confirm registered bank IFSC and account status is active with your branch."
+    ],
+    "confidence_scope": "PhonePe Settlement Guidelines"
+  },
+  {
+    "doc_id": "ESCALATION_GUIDE_001",
+    "title": "Escalation Matrix for Unresolved UPI Disputes",
+    "source_url": "https://www.npci.org.in/what-we-do/upi/dispute-redressal-mechanism",
+    "publisher": "NPCI / RBI Ombudsman",
+    "published_or_updated": "2025-03-01",
+    "issue_category": "escalation",
+    "merchant_type": "all",
+    "chunk_text": "Grievance Redressal Hierarchy for Merchants and Consumers: Level 1: In-app complaint via PhonePe for Business / UPI App. Level 2: Acquiring bank customer support or Nodal Officer with UTR. Level 3: NPCI Dispute Redressal Mechanism portal (npci.org.in). Level 4: RBI Integrated Ombudsman (cms.rbi.org.in) if complaint is not resolved within 30 days.",
+    "action_steps": [
+      "Level 1: Log ticket in PhonePe for Business under the specific Transaction ID.",
+      "Level 2: Contact your bank branch with the 12-digit UTR.",
+      "Level 3: File complaint on NPCI portal under 'Transaction Complaint'.",
+      "Level 4: Escalate to RBI Ombudsman if no response in 30 days."
+    ],
+    "confidence_scope": "Official Regulatory Escalation"
+  }
+]

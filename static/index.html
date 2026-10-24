@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhonePe Merchant UPI Helpdesk | RAG Counter Assist</title>
+  <meta name="description" content="AI-powered counter assistance for Indian merchants using PhonePe QR and SmartSpeaker. Instant dispute guidance, transaction lookup, and NPCI policy citations.">
+  
+  <!-- Modern Sporty Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- SPORTY ATHLETIC TOP NAVBAR -->
+    <header class="top-nav">
+      <div class="brand-group">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" class="logo-icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">PHONEPE <span class="badge-sport">ASSIST</span></div>
+          <div class="brand-sub">Counter Helpdesk & RAG Resolution</div>
+        </div>
+      </div>
+
+      <!-- Segmented Nav Tabs -->
+      <nav class="nav-segmented">
+        <button class="nav-tab active" id="tabChatBtn">
+          <span class="tab-dot"></span>
+          <span>Helpdesk Chat</span>
+        </button>
+        <button class="nav-tab" id="tabLedgerBtn">
+          <span>Counter Ledger</span>
+          <span class="tab-count" id="ledgerCount">0</span>
+        </button>
+        <button class="nav-tab" id="tabPoliciesBtn">
+          <span>Official Policies</span>
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="soundbox-badge" id="soundboxStatusBtn" title="Test PhonePe SmartSpeaker voice alert">
+          <span class="pulse-dot"></span>
+          <span class="soundbox-text">SmartSpeaker: <strong>Active</strong></span>
+        </button>
+        <button class="btn-api-key" id="openSettingsBtn">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <span id="apiKeyBtnText">Gemini API Key</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+      <!-- 1. CHAT PANEL (SPLIT-VIEW COUNTER CONSOLE) -->
+      <section class="panel-section active" id="chatPanel">
+        <div class="chat-workspace">
+          <!-- Left / Main: Chat Assistant & Optimized Query Bar -->
+          <div class="chat-main">
+            <!-- Chat Messages Container -->
+            <div class="chat-container" id="chatContainer">
+              <div class="welcome-card">
+                <div class="welcome-badge">ACTIVE COUNTER AI</div>
+                <h2>How can I assist you at the counter?</h2>
+                <p>Ground answers in official NPCI guidelines, RBI dispute rules, and your live PhonePe terminal records.</p>
+                
+                <!-- 4 Sporty Interactive Scenario Action Cards -->
+                <div class="scenario-grid">
+                  <div class="scenario-card" data-prompt="Customer paid ₹1,450, their phone shows debited, but PhonePe soundbox was silent. What should I check?">
+                    <div class="scenario-card-header">
+                      <span class="scenario-icon">⚡</span>
+                      <span class="scenario-tag">Soundbox</span>
+                    </div>
+                    <h4>Soundbox Silent (₹1,450)</h4>
+                    <p>Customer debited, but speaker made no voice alert.</p>
+                  </div>
+
+                  <div class="scenario-card" data-prompt="Customer shows green success screen for ₹1,200, but transaction shows 'Pending' in my merchant app. Can I give goods?">
+                    <div class="scenario-card-header">
+                      <span class="scenario-icon">⏳</span>
+                      <span class="scenario-tag tag-pending">Pending</span>
+                    </div>
+                    <h4>Payment Pending (₹1,200)</h4>
+                    <p>Phone screen green, but terminal in pending state.</p>
+                  </div>
+
+                  <div class="scenario-card" data-prompt="Customer shows a payment screenshot with UTR 429188231009 for ₹950, but no SMS or app notification received. Is it fake?">
+                    <div class="scenario-card-header">
+                      <span class="scenario-icon">🛡️</span>
+                      <span class="scenario-tag tag-alert">Anti-Fraud</span>
+                    </div>
+                    <h4>Verify Fake Screenshot</h4>
+                    <p>Check 12-digit UTR against terminal switch to detect spoofing.</p>
+                  </div>
+
+                  <div class="scenario-card" data-prompt="Customer's UPI payment failed for ₹850 and they are demanding immediate cash refund from my drawer. What should I do?">
+                    <div class="scenario-card-header">
+                      <span class="scenario-icon">🚫</span>
+                      <span class="scenario-tag tag-alert">Drawer Safety</span>
+                    </div>
+                    <h4>Demanding Cash Refund</h4>
+                    <p>Failed payment cash demand; NPCI auto-reversal rules.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optimized Query Bar (Compact, Ergonomic Width) -->
+            <div class="input-container">
+              <form class="input-form" id="chatForm">
+                <div class="input-wrapper">
+                  <input type="text" id="userInput" placeholder="Ask about payment dispute, soundbox lag, or enter 12-digit UTR..." autocomplete="off">
+                  <button type="button" class="btn-voice-sim" id="playChimeBtn" title="Test PhonePe Soundbox Announcement Chime">
+                    🔔 Chime
+                  </button>
+                  <button type="submit" class="btn-send" id="sendBtn">
+                    <span>Send</span>
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                      <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+              <div class="input-hints">
+                <span>💡 <strong>Tip:</strong> Type in English or Hinglish (e.g. <em>"Customer ka paisa kat gaya par soundbox nahi bola"</em>).</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live Counter Terminal Activity Widget -->
+          <aside class="counter-sidebar">
+            <div class="sidebar-header">
+              <div class="sidebar-title">
+                <span class="pulse-dot"></span>
+                <span>Counter Terminal Live</span>
+              </div>
+              <span class="sidebar-badge">Counter 1</span>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="sidebar-stats">
+              <div class="stat-pill">
+                <span class="stat-num" id="statSuccessCount">0</span>
+                <span class="stat-lbl">Success</span>
+              </div>
+              <div class="stat-pill stat-pending">
+                <span class="stat-num" id="statPendingCount">0</span>
+                <span class="stat-lbl">Pending</span>
+              </div>
+              <div class="stat-pill stat-alert">
+                <span class="stat-num" id="statFailedCount">0</span>
+                <span class="stat-lbl">Issues</span>
+              </div>
+            </div>
+
+            <!-- Quick Terminal Feed -->
+            <div class="sidebar-feed-header">
+              <span>Recent Counter Transactions</span>
+              <button class="btn-text-action" id="viewAllLedgerBtn">View Full &rarr;</button>
+            </div>
+
+            <div class="sidebar-transactions-list" id="sidebarTxnList">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- SmartSpeaker Info Box -->
+            <div class="sidebar-speaker-box">
+              <div class="speaker-status-row">
+                <div class="speaker-meta">
+                  <span class="speaker-icon">📢</span>
+                  <div>
+                    <strong>PhonePe SmartSpeaker 4G</strong>
+                    <div class="speaker-sub">Airtel 4G • Battery: 88%</div>
+                  </div>
+                </div>
+                <button class="btn-chime-mini" id="sidebarChimeBtn" title="Test Voice Chime">🔔 Test</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 2. LEDGER PANEL -->
+      <section class="panel-section" id="ledgerPanel">
+        <div class="panel-header">
+          <div>
+            <h3>PhonePe Counter Transaction Ledger</h3>
+            <p>Live terminal transactions. Click "Ask Helpdesk" to instantly resolve any disputed or pending state.</p>
+          </div>
+          <div class="ledger-search">
+            <input type="text" id="ledgerSearchInput" placeholder="Search by UTR, VPA, Amount, or Status...">
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="data-table" id="transactionsTable">
+            <thead>
+              <tr>
+                <th>Txn ID</th>
+                <th>12-Digit UTR</th>
+                <th>Timestamp</th>
+                <th>Customer / VPA</th>
+                <th>Amount</th>
+                <th>Terminal Status</th>
+                <th>Soundbox Alert</th>
+                <th>Reason / Notes</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. POLICIES PANEL -->
+      <section class="panel-section" id="policiesPanel">
+        <div class="panel-header">
+          <div>
+            <h3>Official NPCI & PhonePe Knowledge Base</h3>
+            <p>Curated official guidelines from NPCI FAQs, RBI circulars, and merchant compliance standards.</p>
+          </div>
+        </div>
+        <div class="policies-grid" id="policiesGrid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Gemini API Key Settings Modal -->
+    <div class="modal-backdrop" id="settingsModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Gemini LLM Configuration</h3>
+          <button class="btn-close" id="closeSettingsBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Configure your <strong>Gemini API Key</strong> for intelligent reasoning. When no key is entered, the built-in <strong>rule-based local synthesizer</strong> responds directly from official NPCI guidelines.</p>
+          <div class="form-group">
+            <label for="geminiApiKeyInput">Gemini API Key:</label>
+            <input type="password" id="geminiApiKeyInput" placeholder="AIzaSy...">
+          </div>
+          <div class="key-status-indicator" id="keyStatusIndicator">
+            No API key configured. Using local policy synthesizer.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" id="clearKeyBtn">Remove Key</button>
+          <button class="btn-primary" id="saveKeyBtn">Save API Key</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
